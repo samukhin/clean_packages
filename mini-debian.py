@@ -23,4 +23,5 @@ for dep in deps:
     else:
         cdep = dep.split(' ')[-1]
         if cdep in d:
-            d[key] += [cdep]
+            if not cdep in d[key]:
+                d[key] += [cdep]
