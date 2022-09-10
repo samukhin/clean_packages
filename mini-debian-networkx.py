@@ -40,6 +40,10 @@ print([len(i) for i in nx.connected_components(G.to_undirected())])
 
 comp_list = list(nx.connected_components(G.to_undirected()))
 
+for i in range(len(comp_list)):
+    print(i, len([package for package in comp_list[i] if len(G.pred[package]) == 0]))
+
+print()
 
 def print_dep(package, dep_level):
     global G
