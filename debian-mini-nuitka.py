@@ -52,5 +52,6 @@ print()
 blist = []
 for package in d.keys():
     if len(d[package]["rdep"]) == 0:
-        print_dep(package, 0)
+        print(package)
+        print_dep(package, 1)
         blist = []
