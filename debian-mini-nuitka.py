@@ -43,6 +43,11 @@ def print_dep(package, dep_level):
             if dep_level == 1:
                 blist = []
 
+#Выводим общую статистику
+print(len(d.keys()))
+print(len([package for package in d.keys() if len(d[package]["rdep"]) == 0]))
+print()
+
 #Выводим иерархию пакетов
 blist = []
 for package in d.keys():
