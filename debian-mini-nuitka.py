@@ -30,7 +30,22 @@ for dep in deps:
             if not key in d[cdep]["rdep"]:
                 d[cdep]["rdep"] += [cdep]
 
-#Выводим пакеты без родителей
-for package in d:
+#Функция вывода зависимостей из словаря
+def print_dep(package, dep_level):
+    global d
+    global blist
+    blist += [package]
+    if len(d[package]["dep"]) > 0:
+        for dep in d[package]["dep"]:
+            print(' ' * dep_level + dep)
+            if not dep in blist:
+                print_dep(dep, dep_level+1)
+            if dep_level == 1:
+                blist = []
+
+#Выводим иерархию пакетов
+blist = []
+for package in d.keys():
     if len(d[package]["rdep"]) == 0:
-        print(package)
+        print_dep(package, 0)
+        blist = []
