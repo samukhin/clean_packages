@@ -1,7 +1,7 @@
 import subprocess
 
 #Получаем список всех пакетов и зависимостей
-deps = subprocess.check_output("apt-cache depends --installed --no-recommends --no-suggests --no-conflicts --no-breaks --no-replaces --no-enhances $(dpkg-query -W --showformat='${Package} ')", shell=True).decode("utf-8").split('\n')
+deps = subprocess.check_output("apt-cache depends --no-recommends --no-suggests --no-conflicts --no-breaks --no-replaces --no-enhances $(dpkg-query -W --showformat='${Package} ')", shell=True).decode("utf-8").split('\n')
 
 #Создаём переменные
 d = {}
