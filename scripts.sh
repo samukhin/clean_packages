@@ -7,6 +7,7 @@ dpkg-query -W --showformat='${Package}\t${Depends}\n'
 
 #Отметить все пакеты как установленные автоматически
 aptitude markauto $(dpkg-query -W --showformat='${Package} ')
+apt-mark markauto $(dpkg-query -W --showformat='${Package} ')
 
 dpkg -l | grep '^rc' | awk '{print $2}' | xargs dpkg --purge
 
