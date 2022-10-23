@@ -14,5 +14,11 @@ apt purge --autoremove apparmor*
 apt purge --autoremove rsyslog*
 apt purge --autoremove cron anacron
 
+#Так как alsa практически нигде не используется
+apt purge alsa* libalsa*
+#либо так, но от pulse много чего зависит
+apt purge pulseaudio*
+
 #Debian 11
 apt purge --autoremove pipewire*
+apt purge --autoremove libpipewire*
