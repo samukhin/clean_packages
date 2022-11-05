@@ -19,6 +19,9 @@ apt purge alsa*
 #либо так, но от pulse много чего зависит
 apt purge pulseaudio*
 
+#Если не используются принтеры и сканеры
+apt purge --autoremove sane* cups*
+
 #Debian 11
 apt purge --autoremove pipewire*
 apt purge --autoremove libpipewire*
